@@ -84,7 +84,6 @@ Follow these steps to set up and run the project locally.
     - Open your terminal and pull the necessary models for the application:
       ```bash
       ollama pull phi3
-      ollama pull nomic-embed-text
       ```
 
 ### 3. Usage
@@ -92,7 +91,7 @@ Follow these steps to set up and run the project locally.
 1.  **Populate the Knowledge Base (Run Once):**
     - Execute the indexing script to upload your facet data to Pinecone.
       ```bash
-      python 1_index_data_to_pinecone.py
+      database_creation.py
       ```
 
 2.  **Launch the Application:**
