@@ -1,7 +1,8 @@
 # 🤖 RAG-Based Conversational Facet Scorer
 
 This project implements a sophisticated RAG (Retrieval-Augmented Generation) system to score conversational turns against over 300 distinct behavioral facets. It leverages a powerful generative model (Google's Gemini) for high-quality dataset creation and a fast, local LLM (Phi-3) for real-time, context-aware scoring.
-
+![image not loaded](assets/a.png)
+![image not loaded](assets/b.png)
 ---
 
 ## ✨ Features
