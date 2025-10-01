@@ -28,15 +28,21 @@ This project implements a sophisticated RAG (Retrieval-Augmented Generation) sys
 
 ## 🏗️ Project Architecture
 
-The project operates in two main phases: a one-time indexing step and a real-time scoring application.
+The project operates in three main phases: a one-time dataset creation phase followed by the indexing step and a real-time scoring application.
 
-1.  **Indexing (Setup):**
-    - The `1_index_data_to_pinecone.py` script reads the `fully_automated_dataset.csv`.
+1.  **Database creation:**
+    - First we clean the dataset by removing any trailing spaces and repeatation etc.
+    - We then creat the dataset which includes the defination of facets, rubrics and conversation for each rubric by using the provieded list of facets.
+    - For this purpose we use a larger LLM like the Gemini 2.5 pro model.
+    - once we have the dataset we do a final manual check about the quality of data.
+
+3.  **Indexing (setup):**
+    - The `databae_creation.py` script reads the `fully_automated_dataset.csv`.
     - It takes the unique facet definitions/rubrics (the `context` column).
-    - These contexts are converted into vector embeddings using a local embedding model (`nomic-embed-text`).
+    - These contexts are converted into vector embeddings using a gemini `text-embedding-004 model`.
     - The documents and their embeddings are uploaded and stored in a Pinecone vector index.
 
-2.  **Scoring (Application):**
+4.  **Scoring (Application):**
     - The Streamlit `app.py` launches a web interface.
     - A user enters a **Facet Name** and a **Conversation Turn**.
     - The application uses the Facet Name to retrieve the most relevant rubric from the Pinecone index.
@@ -60,8 +66,8 @@ Follow these steps to set up and run the project locally.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-    cd your-repo-name
+    git clone [https://github.com/yashkahalkar/Ahoum_submission](https://github.com/yashkahalkar/Ahoum_submission.git)
+    cd Ahoum_submission
     ```
 
 2.  **Create a virtual environment and install dependencies:**
